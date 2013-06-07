@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+ <display-name>Twilio TwiML App</display-name>
+ <welcome-file-list>
+ <welcome-file>index.jsp</welcome-file>
+ </welcome-file-list>
+    <servlet>
+        <servlet-name>TwilioServlet</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioServletSayResponse</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServlet</servlet-name>
+        <url-pattern>/twiml</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TwilioServletGreeting</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioServletGreetingByName</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletGreeting</servlet-name>
+        <url-pattern>/twiml/greeting</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>TwilioServletAudio</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioServletPlayAudio</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletAudio</servlet-name>
+        <url-pattern>/twiml/audio</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>TwilioServletAnotherPerson</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioServletAnotherPerson</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletAnotherPerson</servlet-name>
+        <url-pattern>/twiml/anotherperson</url-pattern>
+    </servlet-mapping>
+    
+       <servlet>
+        <servlet-name>TwilioServletHandleKey</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioHandleKeyServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletHandleKey</servlet-name>
+        <url-pattern>/handle-key</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>TwilioServletVoiceMessage</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioServletVoiceMessage</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletVoiceMessage</servlet-name>
+        <url-pattern>/twiml/voicemessage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TwilioServletHandleTwoKey</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioHandleTwoKeyServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletHandleTwoKey</servlet-name>
+        <url-pattern>/handle-two-key</url-pattern>
+    </servlet-mapping>
+    
+      <servlet>
+        <servlet-name>TwilioServletHandleRecording</servlet-name>
+        <servlet-class>com.twilio.incoming.TwilioHandleRecordingServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioServletHandleRecording</servlet-name>
+        <url-pattern>/handle-recording</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+<!-- incoming call tracking  -->
+
+ <servlet>
+        <servlet-name>TwilioCallTrackingIn</servlet-name>
+        <servlet-class>com.twilio.calltracking.HandleIncomingCallServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioCallTrackingIn</servlet-name>
+        <url-pattern>/calltracking</url-pattern>
+    </servlet-mapping>
+    
+    
+     <servlet>
+        <servlet-name>TwilioCallTrackingInRecord</servlet-name>
+        <servlet-class>com.twilio.calltracking.TwilioHandleRecordingServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>TwilioCallTrackingInRecord</servlet-name>
+        <url-pattern>/handle-calltracking</url-pattern>
+    </servlet-mapping>
+
+
+
+    
+</web-app>

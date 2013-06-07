@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Response>
+<Say>Hello Guest! Welcome to sigma info solutions:</Say>
+<Play>http://twilio.velmurugan.cloudbees.net/monkey.mp3</Play>
+
+<Pause length="1"/>
+
+<Say voice="woman">
+Please contact Sigma Info solutions if you require any help:
+</Say>
+</Response>
