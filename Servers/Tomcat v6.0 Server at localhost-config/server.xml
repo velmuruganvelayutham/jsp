@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="7070" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -135,7 +135,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="ebay" path="/ebay" reloadable="true" source="org.eclipse.jst.j2ee.server:ebay"/></Host>
+      <Context docBase="online-library" path="/online-library" reloadable="true" source="org.eclipse.jst.jee.server:online-library"/></Host>
     </Engine>
   </Service>
 </Server>
