@@ -9,15 +9,23 @@ import java.awt.*;
  *  &copy; 2003 Marty Hall; may be freely used or adapted.
  */
 
-public class WindowUtilities {
-
+public  class WindowUtilities {
+  
+public WindowUtilities() {
+  super();
+  // TODO Auto-generated constructor stub
+}
   /** Tell system to use native look and feel, as in previous
    *  releases. Metal (Java) LAF is the default otherwise.
    */
-
+private int size;
   public static void setNativeLookAndFeel() {
     try {
-      UIManager.setLookAndFeel
+      String str=new String("abc");
+   
+      str="def";
+      System.out.println(str.toString());
+            UIManager.setLookAndFeel
         (UIManager.getSystemLookAndFeelClassName());
     } catch(Exception e) {
       System.out.println("Error setting native LAF: " + e);
@@ -42,3 +50,6 @@ public class WindowUtilities {
     }
   }
 }
+
+
+

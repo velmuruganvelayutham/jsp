@@ -135,7 +135,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="online-library" path="/online-library" reloadable="true" source="org.eclipse.jst.jee.server:online-library"/></Host>
+      <Context docBase="online-library" path="/online-library" reloadable="true" source="org.eclipse.jst.jee.server:online-library"/><Context docBase="file-inclusion" path="/file-inclusion" reloadable="true" source="org.eclipse.jst.jee.server:file-inclusion"/></Host>
     </Engine>
   </Service>
 </Server>
