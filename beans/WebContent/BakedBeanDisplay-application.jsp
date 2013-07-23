@@ -10,7 +10,6 @@
 <H1>Baked Bean Values: application-based Sharing</H1>
 <jsp:useBean id="applicationBean" class="coreservlets.BakedBean"
              scope="application" />
-<jsp:setProperty name="applicationBean" property="*" />
 <H2>Bean level: 
 <jsp:getProperty name="applicationBean" property="level" /></H2>
 <H2>Dish bean goes with:

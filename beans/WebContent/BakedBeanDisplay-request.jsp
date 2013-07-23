@@ -17,3 +17,4 @@
 <jsp:getProperty name="requestBean" property="goesWith" /></H2>
 <jsp:include page="/WEB-INF/includes/BakedBeanDisplay-snippet.jsp" />
 </BODY></HTML>
+
