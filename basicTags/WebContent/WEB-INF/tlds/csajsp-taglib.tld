@@ -63,4 +63,16 @@
     <tag-class>coreservlets.tags.DebugTag</tag-class>
     <body-content>scriptless</body-content>
   </tag>
+  
+  <tag>
+  <description>this is my tag file</description>
+  <name>vel</name>
+  <tag-class>coreservlets.tags.VelTag</tag-class>
+  <body-content>scriptless</body-content>
+  <attribute>
+  <name>count</name>
+  <required>true</required>
+  </attribute>
+  
+  </tag>
 </taglib>

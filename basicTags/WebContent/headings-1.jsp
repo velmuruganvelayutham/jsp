@@ -8,6 +8,7 @@
 <BODY>
 <%@ taglib uri="/WEB-INF/tlds/csajsp-taglib.tld" 
            prefix="csajsp" %>
+          
 <csajsp:heading align="LEFT" bgColor="CYAN"
                 border="10" fgColor="BLACK" 
                 font="Arial Black" size="78">
@@ -23,4 +24,6 @@
                 font="Arial Narrow" size="100">
   Third Heading
 </csajsp:heading>
+<csajsp:vel count="12">hello</csajsp:vel>
+
 </BODY></HTML>
