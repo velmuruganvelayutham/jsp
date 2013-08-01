@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>  
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <!-- Use the URL http://host/app/todays-special 
+       for the TodaysSpecialServlet. Filters can then be applied
+       to the URL (most common) or name (done once in a while).
+  -->
+  <servlet>
+    <servlet-name>TodaysSpecial</servlet-name>
+    <servlet-class>
+      coreservlets.TodaysSpecialServlet
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TodaysSpecial</servlet-name>
+    <url-pattern>/todays-special</url-pattern> 
+  </servlet-mapping>
+
+  <!-- Register the name "Reporter" for ReportFilter. -->
+  <filter>
+    <filter-name>Reporter</filter-name>
+    <filter-class>
+      coreservlets.filters.ReportFilter
+    </filter-class>
+  </filter>
+  <!-- Apply the Reporter filter to home page. -->
+  <filter-mapping>
+    <filter-name>Reporter</filter-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping>
+  <!-- Also apply the Reporter filter to the servlet named 
+      "TodaysSpecial". 
+  -->
+  <filter-mapping>
+    <filter-name>Reporter</filter-name>
+    <servlet-name>TodaysSpecial</servlet-name>
+  </filter-mapping>
+
+  <!-- Register the name "Logger" for LogFilter. -->
+  <filter>
+    <filter-name>Logger</filter-name>
+    <filter-class>
+      coreservlets.filters.LogFilter
+    </filter-class>
+  </filter>
+  <!-- Apply the Logger filter to all incoming URLs. --> 
+  <filter-mapping>
+    <filter-name>Logger</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Register the name "LateAccessFilter" for 
+       coreservlets.filter.LateAccessFilter. 
+       Supply two initialization parameters: 
+       startTime and endTime.
+  -->
+  <filter>
+    <filter-name>LateAccessFilter</filter-name>
+    <filter-class>
+      coreservlets.filters.LateAccessFilter
+    </filter-class>
+    <init-param>
+      <param-name>startTime</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>endTime</param-name>
+      <param-value>10</param-value>
+    </init-param>
+  </filter>
+  <!-- Apply LateAccessFilter to the home page. --> 
+  <filter-mapping>
+    <filter-name>LateAccessFilter</filter-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping>
+  
+  <!-- Register the name "BannedAccessFilter" for 
+       coreservlets.filter.BannedAccessFilter. 
+       Supply an initialization parameter: 
+       bannedSites.
+  -->
+  <filter>
+    <filter-name>BannedAccessFilter</filter-name>
+    <filter-class>
+      coreservlets.filters.BannedAccessFilter
+    </filter-class>
+    <init-param>
+      <param-name>bannedSites</param-name>
+      <param-value>
+        www.competingsite.com
+        www.bettersite.com
+        www.coreservlets.com
+      </param-value>
+    </init-param>
+  </filter>
+  <!-- Apply BannedAccessFilter to the URL 
+       http://host/app/todays-special 
+  -->
+  <filter-mapping>
+    <filter-name>BannedAccessFilter</filter-name>
+    <url-pattern>/todays-special</url-pattern>
+  </filter-mapping>
+
+  <!-- Register the name "ReplaceSiteNameFilter" for 
+       coreservlets.filters.ReplaceSiteNameFilter. 
+  -->
+  <filter>
+    <filter-name>ReplaceSiteNameFilter</filter-name>
+    <filter-class>
+      coreservlets.filters.ReplaceSiteNameFilter
+    </filter-class>
+  </filter>
+  <!-- Apply ReplaceSiteNameFilter to page2.jsp 
+       in the plugSite directory.
+  -->
+  <filter-mapping>
+    <filter-name>ReplaceSiteNameFilter</filter-name>
+    <url-pattern>/plugSite/page2.jsp</url-pattern>
+  </filter-mapping>
+
+  <!-- Use the URL http://host/app/LongServlet for the servlet
+       that generates long (but very exciting!) output. 
+  -->
+  <servlet>
+    <servlet-name>LongServlet</servlet-name>
+    <servlet-class>coreservlets.LongServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LongServlet</servlet-name>
+    <url-pattern>/LongServlet</url-pattern> 
+  </servlet-mapping>
+  
+  <!-- Register the name "CompressionFilter" for 
+       coreservlets.filters.CompressionFilter. 
+  -->
+  <filter>
+    <filter-name>CompressionFilter</filter-name>
+    <filter-class>
+      coreservlets.filters.CompressionFilter
+    </filter-class>
+  </filter>
+  <!-- Apply CompressionFilter to the URL 
+      http://host/app/LongServlet". 
+  -->
+  <filter-mapping>
+    <filter-name>CompressionFilter</filter-name>
+    <url-pattern>/LongServlet</url-pattern>
+  </filter-mapping>
+  
+  <!-- Disable the invoker servlet. -->
+  <servlet>
+    <servlet-name>NoInvoker</servlet-name>
+    <servlet-class>coreservlets.NoInvokerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoInvoker</servlet-name>
+    <url-pattern>/servlet/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- If URL gives a directory but no filename, try index.jsp
+       first and index.html second. If neither is found,
+       the result is server specific (e.g., a directory 
+       listing).  
+  -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
