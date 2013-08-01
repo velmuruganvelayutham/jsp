@@ -18,6 +18,19 @@ Here's how your browser renders the HTML 4.0 logical character styles:
 
 <%@ taglib uri="/WEB-INF/tlds/csajsp-taglib-adv.tld"
            prefix="csajsp" %>
+           
+           <csajsp:veldep> My Test is found here:<% 3 * 4  %>
+           
+           <EM>Some emphasized text.</EM><BR>
+<STRONG>Some strongly emphasized text.</STRONG><BR>
+<CODE>Some code.</CODE><BR>
+<SAMP>Some sample text.</SAMP><BR>
+<KBD>Some keyboard text.</KBD><BR>
+<DFN>A term being defined.</DFN><BR>
+<VAR>A variable.</VAR><BR>
+<CITE>A citation or reference.</CITE>
+           
+           </csajsp:veldep>
 <TR>
 <TD><PRE><csajsp:filterhtml>
 <EM>Some emphasized text.</EM><BR>
@@ -41,4 +54,6 @@ Here's how your browser renders the HTML 4.0 logical character styles:
 <CITE>A citation or reference.</CITE>
 </TD></TR>
 </TABLE>
+
+
 </BODY></HTML>

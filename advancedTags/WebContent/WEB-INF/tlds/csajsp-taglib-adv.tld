@@ -126,4 +126,11 @@
     <tag-class>coreservlets.tags.ElseTag</tag-class>
     <body-content>scriptless</body-content>
   </tag>
+  
+  <tag>
+   <description>tag dependent</description>
+    <name>veldep</name>
+    <tag-class>coreservlets.tags.TagDependent</tag-class>
+    <body-content>tagdependent</body-content>
+   </tag>
 </taglib>
