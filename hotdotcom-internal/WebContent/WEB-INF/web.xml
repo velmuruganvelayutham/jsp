@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+    xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    
+  <!-- Tell the server to use BASIC authentication. -->
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Hot-Dot-Com Intranet</realm-name>
+  </login-config>
+  
+  <!-- Protect financial plan. Employees or executives. -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Financial Plan</web-resource-name>
+      <url-pattern>/financial-plan.html</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>employee</role-name>
+      <role-name>executive</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <!-- Protect business plan. Executives only. -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Business Plan</web-resource-name>
+      <url-pattern>/business-plan.html</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>executive</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <!-- Protect compensation plan. Employees or executives. -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Compensation Plan</web-resource-name>
+      <url-pattern>/employee-pay.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>employee</role-name>
+      <role-name>executive</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <!--  The security roles used in this app. -->
+  <security-role>
+    <role-name>employee</role-name>
+  </security-role>  
+  <security-role>
+    <role-name>executive</role-name>
+  </security-role> 
+  
+  <!-- A servlet that redirects users to the home page. -->
+  <servlet>
+    <servlet-name>Redirector</servlet-name>
+    <servlet-class>hotdotcom.RedirectorServlet</servlet-class>
+  </servlet>
+  <!-- Turn off invoker. Send requests to index.jsp. -->
+  <servlet-mapping>
+    <servlet-name>Redirector</servlet-name>
+    <url-pattern>/servlet/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- If URL gives a directory but no filename, try index.jsp
+       first and index.html second. If neither is found,
+       the result is server specific (e.g., a directory 
+       listing or a 404 error). -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
