@@ -133,4 +133,10 @@
     <tag-class>coreservlets.tags.TagDependent</tag-class>
     <body-content>tagdependent</body-content>
    </tag>
+   
+   <tag>
+   <name>vel-classic</name>
+   <tag-class>coreservlets.tags.VelClassicTag</tag-class>
+   <body-content>JSP</body-content>
+   </tag>
 </taglib>

@@ -31,6 +31,10 @@ Here's how your browser renders the HTML 4.0 logical character styles:
 <CITE>A citation or reference.</CITE>
            
            </csajsp:veldep>
+           
+           <csajsp:vel-classic>
+This is my first classic tag:  ret of the pages are skipped..
+</csajsp:vel-classic>
 <TR>
 <TD><PRE><csajsp:filterhtml>
 <EM>Some emphasized text.</EM><BR>
@@ -43,7 +47,9 @@ Here's how your browser renders the HTML 4.0 logical character styles:
 <CITE>A citation or reference.</CITE>
 </csajsp:filterhtml></PRE>
 </TD>
+
 <TD>
+
 <EM>Some emphasized text.</EM><BR>
 <STRONG>Some strongly emphasized text.</STRONG><BR>
 <CODE>Some code.</CODE><BR>
